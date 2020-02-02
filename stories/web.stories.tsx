@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   ResourceKind,
   BlockWrapper
@@ -22,7 +22,7 @@ const block:BlockWrapper<any> = {
   getEntityNames: () => ['entity1', 'entity2']
 };
 
-const resource:ResourceKind<any> = {
+const initialResource:ResourceKind<any> = {
   kind: RESOURCE_KIND,
   metadata: {
     name: 'MyWebsite'
@@ -36,4 +36,19 @@ export default {
   title: 'PostgreSQL'
 };
 
-export const Editor = () => <WebSiteEditorComponent {...resource} block={block} />;
+export const Editor = () => {
+
+  const [metadata, setMetadata] = useState(initialResource.metadata);
+  const [spec, setSpec] = useState(initialResource.spec);
+
+  return (
+      <WebSiteEditorComponent kind={initialResource.kind}
+                              metadata={metadata}
+                              spec={spec}
+                              onDataChanged={(metadata, spec ) => {
+                                setMetadata(metadata);
+                                setSpec(spec);
+                              }}
+                              block={block} />
+  )
+};
