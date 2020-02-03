@@ -9,7 +9,7 @@ import {
 } from "@blockware/ui-web-types";
 
 function validateSiteName(fieldName:string, name:string) {
-    if (!/^[a-z]([a-z0-9_-]*[a-z0-9_])?$/i.test(name)) {
+    if (!/^[a-z]([a-z0-9_]*[a-z0-9_])?$/i.test(name)) {
         throw new Error('Invalid site name');
     }
 }
@@ -33,13 +33,13 @@ class WebSiteEditorComponent extends Component<ResourceConfigProps<ResourceMetad
 
     private handleMetaDataChanged(evt:ChangeEvent<HTMLInputElement>) {
         const metadata = _.clone(this.props.metadata);
-        metadata[evt.target.name] = evt.target.value.trim();
+        metadata[evt.target.name] = evt.target.value;
         this.props.onDataChanged(metadata, this.props.spec);
     }
 
     private handleSpecChanged(evt:ChangeEvent<HTMLInputElement>) {
         const spec = _.clone(this.props.spec);
-        spec[evt.target.name] = evt.target.value.trim();
+        spec[evt.target.name] = evt.target.value;
         this.props.onDataChanged(this.props.metadata, spec);
     }
 

@@ -7,11 +7,10 @@ import {
     ResourceType
 } from '@blockware/ui-web-types';
 
-const definition = require('../../blockware.yml');
-
 const config: ResourceConfig<ResourceMetadata> = {
-    kind: definition.metadata.id,
-    name: definition.metadata.name,
+    kind: 'web.blockware.com/v1/Page',
+    name: 'Web Page',
+    consumableKind: 'web.blockware.com/v1/Fragment',
     role: ResourceRole.PROVIDES,
     type: ResourceType.SERVICE,
     componentType: WebSiteEditorComponent,

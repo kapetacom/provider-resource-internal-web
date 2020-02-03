@@ -14,6 +14,7 @@
     "scripts": {
         "prepublishOnly": "npm run build",
         "build": "webpack",
+        "watch": "webpack --watch",
         "storybook": "start-storybook",
         "build-storybook": "build-storybook"
     },
@@ -26,10 +27,10 @@
         "@babel/preset-env": "^7.5.0",
         "@babel/preset-react": "^7.7.4",
         "@babel/preset-typescript": "^7.3.3",
-        "@blockware/ui-web-components": "0.0.8",
-        "@blockware/ui-web-context": "0.0.10",
-        "@blockware/ui-web-types": "0.0.11",
-        "@blockware/ui-web-utils": "0.0.6",
+        "@blockware/ui-web-components": "^0.0.13",
+        "@blockware/ui-web-context": "^0.0.16",
+        "@blockware/ui-web-types": "^0.0.18",
+        "@blockware/ui-web-utils": "^0.0.9",
         "@storybook/addon-actions": "^5.3.3",
         "@storybook/addon-links": "^5.3.3",
         "@storybook/addons": "^5.3.3",
