@@ -1,6 +1,6 @@
 {
     "name": "@blockware/provider-resource-internal-web",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "main": "index.js",
     "description": "Create web-based UI's for your plan.",
     "keywords": [
