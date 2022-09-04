@@ -19,7 +19,7 @@ function validatePath(fieldName:string, name:string) {
         return;
     }
 
-    if (!name.startsWith('/') || !/^\/[a-z]([a-z0-9_-]*[a-z0-9_]\/?)*$/i.test(name)) {
+    if (!name.startsWith('/') || !/^\/[a-z]([a-z0-9_-]*[a-z0-9_]\/?)*$/i.test(name)) {
         throw new Error('Invalid path');
     }
 }
