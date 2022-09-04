@@ -37,12 +37,6 @@ class WebSiteEditorComponent extends Component<ResourceConfigProps<ResourceMetad
         this.props.onDataChanged(metadata, this.props.spec);
     }
 
-    private handleSpecChanged(evt:ChangeEvent<HTMLInputElement>) {
-        const spec = _.clone(this.props.spec);
-        spec[evt.target.name] = evt.target.value;
-        this.props.onDataChanged(this.props.metadata, spec);
-    }
-
     render() {
 
         return (
@@ -58,7 +52,7 @@ class WebSiteEditorComponent extends Component<ResourceConfigProps<ResourceMetad
 
                 <SingleLineInput
                     name={"path"}
-                    value={this.props.metadata.name}
+                    value={this.props.metadata.path}
                     label={"Path"}
                     validation={['required', validatePath]}
                     help={"Give your site a path"}
