@@ -28,13 +28,19 @@ interface WebSiteSpec {
     path:string
 }
 
-class WebSiteEditorComponent extends Component<ResourceConfigProps<ResourceMetadata, WebSiteSpec>> {
 
+class WebSiteEditorComponent extends Component<ResourceConfigProps<ResourceMetadata, WebSiteSpec>> {
 
     private handleMetaDataChanged(name:string, value:string) {
         const metadata = _.clone(this.props.metadata);
         metadata[name] = value;
         this.props.onDataChanged(metadata, this.props.spec);
+    }
+
+    private handleSpecDataChanged(name:string, value:string) {
+        const spec = _.clone(this.props.spec);
+        spec[name] = value;
+        this.props.onDataChanged(this.props.metadata, spec);
     }
 
     render() {
@@ -52,11 +58,11 @@ class WebSiteEditorComponent extends Component<ResourceConfigProps<ResourceMetad
 
                 <SingleLineInput
                     name={"path"}
-                    value={this.props.metadata.path}
+                    value={this.props.spec.path}
                     label={"Path"}
                     validation={['required', validatePath]}
                     help={"Give your site a path"}
-                    onChange={(name: string, input: string) => this.handleMetaDataChanged(name, input)}
+                    onChange={(name: string, input: string) => this.handleSpecDataChanged(name, input)}
                 />
 
             </>
