@@ -1,7 +1,7 @@
 import React,{ChangeEvent, Component} from "react";
 import _ from "lodash";
 
-import {FormRow} from "@blockware/ui-web-components";
+import {SingleLineInput} from "@blockware/ui-web-components";
 
 import {
     ResourceMetadata,
@@ -31,9 +31,9 @@ interface WebSiteSpec {
 class WebSiteEditorComponent extends Component<ResourceConfigProps<ResourceMetadata, WebSiteSpec>> {
 
 
-    private handleMetaDataChanged(evt:ChangeEvent<HTMLInputElement>) {
+    private handleMetaDataChanged(name:string, value:string) {
         const metadata = _.clone(this.props.metadata);
-        metadata[evt.target.name] = evt.target.value;
+        metadata[name] = value;
         this.props.onDataChanged(metadata, this.props.spec);
     }
 
@@ -47,28 +47,24 @@ class WebSiteEditorComponent extends Component<ResourceConfigProps<ResourceMetad
 
         return (
             <>
-                <FormRow label="Name"
-                         help="Name your site"
-                         validation={['required', validateSiteName]}>
+                <SingleLineInput
+                    name={"name"}
+                    value={this.props.metadata.name}
+                    label={"Name"}
+                    validation={['required', validateSiteName]}
+                    help={"Name your site"}
+                    onChange={(name: string, input: string) => this.handleMetaDataChanged(name, input)}
+                />
 
-                    <input type="text" placeholder="E.g. MySite or Main"
-                           name="name"
-                           autoComplete={"off"}
-                           value={this.props.metadata.name}
-                           onChange={(evt) => {this.handleMetaDataChanged(evt)}} />
+                <SingleLineInput
+                    name={"path"}
+                    value={this.props.metadata.name}
+                    label={"Path"}
+                    validation={['required', validatePath]}
+                    help={"Give your site a path"}
+                    onChange={(name: string, input: string) => this.handleMetaDataChanged(name, input)}
+                />
 
-                </FormRow>
-                <FormRow label="Path"
-                         help="Give your site a path"
-                         validation={['required', validatePath]}>
-
-                    <input type="text" placeholder="E.g. / or /my-site"
-                           name="path"
-                           autoComplete={"off"}
-                           value={this.props.spec.path}
-                           onChange={(evt) => {this.handleSpecChanged(evt)}} />
-
-                </FormRow>
             </>
         )
 
