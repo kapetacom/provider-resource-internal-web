@@ -7,6 +7,7 @@ import {
     ResourceMetadata,
     ResourceConfigProps,
 } from "@blockware/ui-web-types";
+import {observer} from "mobx-react";
 
 function validateSiteName(fieldName:string, name:string) {
     if (!/^[a-z]([a-z0-9_]*[a-z0-9_])?$/i.test(name)) {
@@ -28,7 +29,7 @@ interface WebSiteSpec {
     path:string
 }
 
-
+@observer
 class WebSiteEditorComponent extends Component<ResourceConfigProps<ResourceMetadata, WebSiteSpec>> {
 
     private handleMetaDataChanged(name:string, value:string) {
