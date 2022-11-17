@@ -3,8 +3,8 @@ const Path = require('path');
 module.exports = {
     mode: 'development',
     entry: {
-        'web.blockware.com/v1/Page': Path.resolve(__dirname, "./src/web/WebPageConfig"),
-        'web.blockware.com/v1/Fragment': Path.resolve(__dirname, "./src/web/WebFragmentConfig")
+        'blockware/resource-type-web-page': Path.resolve(__dirname, "./src/web/WebPageConfig"),
+        'blockware/resource-type-web-fragment': Path.resolve(__dirname, "./src/web/WebFragmentConfig")
     },
     output: {
         path: Path.join(process.cwd(), 'web'),

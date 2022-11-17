@@ -1,12 +1,12 @@
-kind: core.blockware.com/v1/ResourceType/Internal
+kind: core/resource-type-internal
 metadata:
-  id: web.blockware.com/v1/Page
-  name: Web Page
+  name: blockware/resource-type-web-page
+  title: Web Page
   description: Create web-based UI's for your plan.
 ---
-kind: core.blockware.com/v1/ResourceType/Internal
+kind: core/resource-type-internal
 metadata:
-  id: web.blockware.com/v1/Fragment
-  name: Web Fragment
+  name: blockware/resource-type-web-fragment
+  title: Web Fragment
   description: Consume web page fragments to enable a microfrontend architecture
 

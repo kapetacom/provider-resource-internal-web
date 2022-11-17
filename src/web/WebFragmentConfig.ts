@@ -8,16 +8,16 @@ import {
 } from '@blockware/ui-web-types';
 
 const config: ResourceConfig<ResourceMetadata> = {
-    kind: 'web.blockware.com/v1/Fragment',
+    kind: 'blockware/resource-type-web-fragment',
     name: 'Web Fragment',
     role: ResourceRole.CONSUMES,
     type: ResourceType.SERVICE,
     componentType: WebSiteEditorComponent,
     converters: [
         {
-            fromKind: 'web.blockware.com/v1/Page',
+            fromKind: 'blockware/resource-type-web-page',
             createFrom: (data: ResourceKind) => {
-                return {...data, kind: 'web.blockware.com/v1/Fragment'}
+                return {...data, kind: 'blockware/resource-type-web-fragment'}
             }
         }
     ],

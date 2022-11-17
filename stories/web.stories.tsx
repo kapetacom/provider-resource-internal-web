@@ -7,7 +7,7 @@ import {
 import '@blockware/ui-web-components/styles/index.less';
 import WebSiteEditorComponent from "../src/web/WebSiteEditorComponent";
 
-const RESOURCE_KIND = 'web.blockware.com/v1/Page';
+const RESOURCE_KIND = 'blockware/resource-type-web-page';
 
 const block:BlockWrapper<any> = {
   addEntity: entity => {

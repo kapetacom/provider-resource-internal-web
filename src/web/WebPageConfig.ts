@@ -8,9 +8,9 @@ import {
 } from '@blockware/ui-web-types';
 
 const config: ResourceConfig<ResourceMetadata> = {
-    kind: 'web.blockware.com/v1/Page',
+    kind: 'blockware/resource-type-web-page',
     name: 'Web Page',
-    consumableKind: 'web.blockware.com/v1/Fragment',
+    consumableKind: 'blockware/resource-type-web-fragment',
     role: ResourceRole.PROVIDES,
     type: ResourceType.SERVICE,
     componentType: WebSiteEditorComponent,
