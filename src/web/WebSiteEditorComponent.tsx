@@ -1,7 +1,7 @@
-import React,{ChangeEvent, Component} from "react";
+import React,{Component} from "react";
 import _ from "lodash";
 
-import {SingleLineInput} from "@blockware/ui-web-components";
+import {FormInput} from "@blockware/ui-web-components";
 
 import {
     ResourceMetadata,
@@ -48,7 +48,7 @@ class WebSiteEditorComponent extends Component<ResourceConfigProps<ResourceMetad
 
         return (
             <>
-                <SingleLineInput
+                <FormInput
                     name={"name"}
                     value={this.props.metadata.name}
                     label={"Name"}
@@ -57,7 +57,7 @@ class WebSiteEditorComponent extends Component<ResourceConfigProps<ResourceMetad
                     onChange={(name: string, input: string) => this.handleMetaDataChanged(name, input)}
                 />
 
-                <SingleLineInput
+                <FormInput
                     name={"path"}
                     value={this.props.spec.path}
                     label={"Path"}

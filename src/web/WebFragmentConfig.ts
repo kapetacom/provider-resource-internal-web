@@ -1,7 +1,7 @@
 import WebSiteEditorComponent from './WebSiteEditorComponent';
 
 import {
-    ResourceConfig,
+    ResourceConfig, ResourceKind,
     ResourceMetadata,
     ResourceRole,
     ResourceType
@@ -9,7 +9,7 @@ import {
 
 const config: ResourceConfig<ResourceMetadata> = {
     kind: 'blockware/resource-type-web-fragment',
-    name: 'Web Fragment',
+    title: 'Web Fragment',
     role: ResourceRole.CONSUMES,
     type: ResourceType.SERVICE,
     componentType: WebSiteEditorComponent,

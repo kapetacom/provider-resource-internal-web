@@ -9,7 +9,7 @@ import {
 
 const config: ResourceConfig<ResourceMetadata> = {
     kind: 'blockware/resource-type-web-page',
-    name: 'Web Page',
+    title: 'Web Page',
     consumableKind: 'blockware/resource-type-web-fragment',
     role: ResourceRole.PROVIDES,
     type: ResourceType.SERVICE,
