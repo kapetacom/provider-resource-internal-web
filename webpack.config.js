@@ -1,16 +1,25 @@
 const Path = require('path');
+const packageJson = require('./package.json');
 
 module.exports = {
-    mode: 'development',
     entry: {
-        'blockware/resource-type-web-page': Path.resolve(__dirname, "./src/web/WebPageConfig"),
-        'blockware/resource-type-web-fragment': Path.resolve(__dirname, "./src/web/WebFragmentConfig")
+        [`blockware/resource-type-web-page:${packageJson.version}`]: {
+            import: Path.resolve(__dirname, "./src/web/WebPageConfig"),
+            filename: `blockware/resource-type-web-page.js`
+        },
+        [`blockware/resource-type-web-fragment:${packageJson.version}`]: {
+            import: Path.resolve(__dirname, "./src/web/WebFragmentConfig"),
+            filename: `blockware/resource-type-web-fragment.js`
+        }
     },
     output: {
         path: Path.join(process.cwd(), 'web'),
         filename: '[name].js',
-        library: `Blockware.resourceTypes["[name]"]`,
-        libraryTarget: 'assign'
+        library: {
+            name: `Blockware.resourceTypes["[name]"]`,
+            type: 'assign',
+            export: 'default'
+        }
     },
     module: {
         rules: [
