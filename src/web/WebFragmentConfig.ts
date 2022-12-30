@@ -7,8 +7,11 @@ import {
     ResourceType
 } from '@blockware/ui-web-types';
 
+const packageJson = require('../../package.json');
+
 const config: ResourceConfig<ResourceMetadata> = {
     kind: 'blockware/resource-type-web-fragment',
+    version: packageJson.version,
     title: 'Web Fragment',
     role: ResourceRole.CONSUMES,
     type: ResourceType.SERVICE,
