@@ -20,7 +20,7 @@ const config: ResourceConfig<ResourceMetadata> = {
         {
             fromKind: 'blockware/resource-type-web-page',
             createFrom: (data: ResourceKind) => {
-                return {...data, kind: 'blockware/resource-type-web-fragment'}
+                return {...data}
             }
         }
     ],
