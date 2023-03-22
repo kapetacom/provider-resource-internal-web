@@ -1,12 +1,12 @@
 import React,{Component} from "react";
 import _ from "lodash";
 
-import {FormInput} from "@blockware/ui-web-components";
+import {FormInput} from "@kapeta/ui-web-components";
 
 import {
     ResourceMetadata,
     ResourceConfigProps,
-} from "@blockware/ui-web-types";
+} from "@kapeta/ui-web-types";
 import {observer} from "mobx-react";
 
 function validateSiteName(fieldName:string, name:string) {

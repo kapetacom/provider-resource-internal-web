@@ -5,12 +5,12 @@ import {
     ResourceMetadata,
     ResourceRole,
     ResourceType
-} from '@blockware/ui-web-types';
+} from '@kapeta/ui-web-types';
 
 const packageJson = require('../../package.json');
 
 const config: ResourceConfig<ResourceMetadata> = {
-    kind: 'blockware/resource-type-web-fragment',
+    kind: 'kapeta/resource-type-web-fragment',
     version: packageJson.version,
     title: 'Web Fragment',
     role: ResourceRole.CONSUMES,
@@ -18,7 +18,7 @@ const config: ResourceConfig<ResourceMetadata> = {
     componentType: WebSiteEditorComponent,
     converters: [
         {
-            fromKind: 'blockware/resource-type-web-page',
+            fromKind: 'kapeta/resource-type-web-page',
             createFrom: (data: ResourceKind) => {
                 return {...data}
             }

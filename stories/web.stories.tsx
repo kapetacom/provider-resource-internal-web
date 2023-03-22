@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import {
   ResourceKind,
   BlockWrapper
-} from '@blockware/ui-web-types';
+} from '@kapeta/ui-web-types';
 
-import '@blockware/ui-web-components/styles/index.less';
+import '@kapeta/ui-web-components/styles/index.less';
 import WebSiteEditorComponent from "../src/web/WebSiteEditorComponent";
 
-const RESOURCE_KIND = 'blockware/resource-type-web-page';
+const RESOURCE_KIND = 'kapeta/resource-type-web-page';
 
 const block:BlockWrapper<any> = {
   addEntity: entity => {

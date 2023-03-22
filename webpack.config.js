@@ -3,20 +3,20 @@ const packageJson = require('./package.json');
 
 module.exports = {
     entry: {
-        [`blockware/resource-type-web-page:${packageJson.version}`]: {
+        [`kapeta/resource-type-web-page:${packageJson.version}`]: {
             import: Path.resolve(__dirname, "./src/web/WebPageConfig"),
-            filename: `blockware/resource-type-web-page.js`
+            filename: `kapeta/resource-type-web-page.js`
         },
-        [`blockware/resource-type-web-fragment:${packageJson.version}`]: {
+        [`kapeta/resource-type-web-fragment:${packageJson.version}`]: {
             import: Path.resolve(__dirname, "./src/web/WebFragmentConfig"),
-            filename: `blockware/resource-type-web-fragment.js`
+            filename: `kapeta/resource-type-web-fragment.js`
         }
     },
     output: {
         path: Path.join(process.cwd(), 'web'),
         filename: '[name].js',
         library: {
-            name: `Blockware.resourceTypes["[name]"]`,
+            name: `Kapeta.resourceTypes["[name]"]`,
             type: 'assign',
             export: 'default'
         }
@@ -66,7 +66,7 @@ module.exports = {
     externals: {
         react: 'React',
         lodash: '_',
-        '@blockware/ui-web-components': 'Blockware.Components',
-        '@blockware/ui-web-types': 'Blockware.Types'
+        '@kapeta/ui-web-components': 'Kapeta.Components',
+        '@kapeta/ui-web-types': 'Kapeta.Types'
     }
 };
