@@ -1,12 +1,12 @@
 kind: core/resource-type-internal
 metadata:
-  name: blockware/resource-type-web-page
+  name: kapeta/resource-type-web-page
   title: Web Page
   description: Create web-based UI's for your plan.
 ---
 kind: core/resource-type-internal
 metadata:
-  name: blockware/resource-type-web-fragment
+  name: kapeta/resource-type-web-fragment
   title: Web Fragment
   description: Consume web page fragments to enable a microfrontend architecture
 
