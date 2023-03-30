@@ -27,7 +27,6 @@ jobs:
           repository: kapetacom/core-registry-action
           path: ./github-action/core-registry-action
           token: ${{ secrets.GHA_TOKEN }}
-
       - name: push to kapeta cloud
         id: kapeta-registry-push
         uses: ./github-action/core-registry-action
@@ -42,4 +41,3 @@ jobs:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
           channel: '#github-actions'
-

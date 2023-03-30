@@ -15,7 +15,8 @@
     "build": "webpack --mode production",
     "start": "npm run watch",
     "watch": "webpack --mode development --watch",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "build-storybook": "build-storybook"
   },
   "peerDependencies": {
     "@kapeta/ui-web-components": "<2",
