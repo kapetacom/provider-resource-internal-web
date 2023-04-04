@@ -6,7 +6,7 @@ metadata:
 spec:
   ports:
     - name: http
-      type: http
+      type: web
 
 ---
 kind: core/resource-type-internal
@@ -17,5 +17,5 @@ metadata:
 spec:
   ports:
     - name: http
-      type: http
+      type: web
 
