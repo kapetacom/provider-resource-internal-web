@@ -1,13 +1,6 @@
-import React,{Component} from "react";
-import _ from "lodash";
+import React from "react";
 
-import {FormInput} from "@kapeta/ui-web-components";
-
-import {
-    ResourceMetadata,
-    ResourceConfigProps,
-} from "@kapeta/ui-web-types";
-import {observer} from "mobx-react";
+import {FormField} from "@kapeta/ui-web-components";
 
 function validateSiteName(fieldName:string, name:string) {
     if (!/^[a-z]([a-z0-9_]*[a-z0-9_])?$/i.test(name)) {
@@ -25,51 +18,28 @@ function validatePath(fieldName:string, name:string) {
     }
 }
 
-interface WebSiteSpec {
-    path:string
-}
 
-@observer
-class WebSiteEditorComponent extends Component<ResourceConfigProps<ResourceMetadata, WebSiteSpec>> {
+const WebSiteEditorComponent = () => {
 
-    private handleMetaDataChanged(name:string, value:string) {
-        const metadata = _.clone(this.props.metadata);
-        metadata[name] = value;
-        this.props.onDataChanged(metadata, this.props.spec);
-    }
 
-    private handleSpecDataChanged(name:string, value:string) {
-        const spec = _.clone(this.props.spec);
-        spec[name] = value;
-        this.props.onDataChanged(this.props.metadata, spec);
-    }
+    return (
+        <>
+            <FormField
+                name={"metadata.name"}
+                label={"Name"}
+                validation={['required', validateSiteName]}
+                help={"Name your site"}
+            />
 
-    render() {
+            <FormField
+                name={"spec.path"}
+                label={"Path"}
+                validation={['required', validatePath]}
+                help={"Give your site a path"}
+            />
 
-        return (
-            <>
-                <FormInput
-                    name={"name"}
-                    value={this.props.metadata.name}
-                    label={"Name"}
-                    validation={['required', validateSiteName]}
-                    help={"Name your site"}
-                    onChange={(name: string, input: string) => this.handleMetaDataChanged(name, input)}
-                />
-
-                <FormInput
-                    name={"path"}
-                    value={this.props.spec.path}
-                    label={"Path"}
-                    validation={['required', validatePath]}
-                    help={"Give your site a path"}
-                    onChange={(name: string, input: string) => this.handleSpecDataChanged(name, input)}
-                />
-
-            </>
-        )
-
-    }
+        </>
+    )
 }
 
 export default WebSiteEditorComponent;
