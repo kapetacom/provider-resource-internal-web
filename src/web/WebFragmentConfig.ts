@@ -1,29 +1,45 @@
 import WebSiteEditorComponent from './WebSiteEditorComponent';
 
 import {
-    ResourceConfig, ResourceKind,
-    ResourceMetadata,
+    IResourceTypeProvider,
     ResourceRole,
-    ResourceType
+    ResourceProviderType
 } from '@kapeta/ui-web-types';
+import {Metadata, Resource} from "@kapeta/schemas";
 
 const packageJson = require('../../package.json');
 
-const config: ResourceConfig<ResourceMetadata> = {
+const config: IResourceTypeProvider<Metadata> = {
     kind: 'kapeta/resource-type-web-fragment',
     version: packageJson.version,
     title: 'Web Fragment',
     role: ResourceRole.CONSUMES,
-    type: ResourceType.SERVICE,
+    type: ResourceProviderType.INTERNAL,
     componentType: WebSiteEditorComponent,
     converters: [
         {
             fromKind: 'kapeta/resource-type-web-page',
-            createFrom: (data: ResourceKind) => {
+            createFrom: (data: Resource) => {
                 return {...data}
             }
         }
     ],
+    definition: {
+        kind: 'core/resource-type-internal',
+        metadata: {
+            name: 'kapeta/resource-type-web-page',
+            title: 'Web Fragment',
+            description: 'Consume web page fragments to enable a microfrontend architecture'
+        },
+        spec: {
+            ports: [
+                {
+                    name: 'http',
+                    type: 'web'
+                }
+            ]
+        }
+    }
 };
 
 export default config;

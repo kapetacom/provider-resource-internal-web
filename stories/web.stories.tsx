@@ -1,54 +1,37 @@
-import React, {useState} from 'react';
-import {
-  ResourceKind,
-  BlockWrapper
-} from '@kapeta/ui-web-types';
+import React from 'react';
 
 import '@kapeta/ui-web-components/styles/index.less';
 import WebSiteEditorComponent from "../src/web/WebSiteEditorComponent";
+import {Resource} from "@kapeta/schemas";
+import {FormContainer} from "@kapeta/ui-web-components";
 
 const RESOURCE_KIND = 'kapeta/resource-type-web-page';
 
-const block:BlockWrapper<any> = {
-  addEntity: entity => {
-
-  },
-  getData: () => {
-    return {};
-  },
-  setData: () => {
-
-  },
-  getEntityNames: () => ['entity1', 'entity2']
-};
-
-const initialResource:ResourceKind<any> = {
-  kind: RESOURCE_KIND,
-  metadata: {
-    name: 'MyWebsite'
-  },
-  spec: {
-    path: '/my-site'
-  }
+const initialResource: Resource = {
+    kind: RESOURCE_KIND,
+    metadata: {
+        name: 'MyWebsite'
+    },
+    spec: {
+        port: {
+            type: 'web'
+        },
+        path: '/my-site'
+    }
 };
 
 export default {
-  title: 'PostgreSQL'
+    title: 'Web'
 };
 
 export const Editor = () => {
 
-  const [metadata, setMetadata] = useState(initialResource.metadata);
-  const [spec, setSpec] = useState(initialResource.spec);
-
-  return (
-      <WebSiteEditorComponent kind={initialResource.kind}
-                              metadata={metadata}
-                              spec={spec}
-                              onDataChanged={(metadata, spec ) => {
-                                setMetadata(metadata);
-                                setSpec(spec);
-                              }}
-                              block={block} />
-  )
+    return (
+        <FormContainer initialValue={initialResource}
+                       onChange={(data) => {
+                           console.log('Data changed', data);
+                       }}>
+            <WebSiteEditorComponent/>
+        </FormContainer>
+    )
 };
