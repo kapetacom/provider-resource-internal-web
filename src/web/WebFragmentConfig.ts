@@ -15,7 +15,7 @@ const config: IResourceTypeProvider<Metadata> = {
     title: 'Web Fragment',
     role: ResourceRole.CONSUMES,
     type: ResourceProviderType.INTERNAL,
-    componentType: WebSiteEditorComponent,
+    editorComponent: WebSiteEditorComponent,
     converters: [
         {
             fromKind: 'kapeta/resource-type-web-page',

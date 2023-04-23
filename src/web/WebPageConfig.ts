@@ -17,7 +17,7 @@ const resourceTypeProvider: IResourceTypeProvider<Metadata> = {
     consumableKind: 'kapeta/resource-type-web-fragment',
     role: ResourceRole.PROVIDES,
     type: ResourceProviderType.INTERNAL,
-    componentType: WebSiteEditorComponent,
+    editorComponent: WebSiteEditorComponent,
     definition: {
         kind: 'core/resource-type-internal',
         metadata: {
