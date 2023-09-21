@@ -3,6 +3,7 @@ metadata:
   name: kapeta/resource-type-web-page
   title: Web Page
   description: Create web-based UI's for your plan.
+  visibility: public
 spec:
   ports:
     - name: http
