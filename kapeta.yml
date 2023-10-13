@@ -15,6 +15,7 @@ metadata:
   name: kapeta/resource-type-web-fragment
   title: Web Fragment
   description: Consume web page fragments to enable a microfrontend architecture
+  visibility: public
 spec:
   ports:
     - name: http
